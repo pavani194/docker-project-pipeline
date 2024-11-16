@@ -102,7 +102,7 @@ pipeline {
                 sh 'docker build -t image1 .'
             }
         }
-        
+
         stage ("Scan image") {
             steps {
                 sh 'trivy image image1'
@@ -110,7 +110,7 @@ pipeline {
         }
         stage ("Deploy") {
             steps {
-                sh 'docker run -d --name zomato -p 3000:3000 image1'
+               sh 'docker run -d --name zomato -p 3000:3000 image1'
             }
         }
     }
